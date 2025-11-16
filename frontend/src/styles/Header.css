@@ -1,0 +1,64 @@
+/* Overall header container */
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Spread out logo, search input, and nav links */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333; /* Change to your desired background color */
+  color: white;
+}
+
+/* Styling for the logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 40px;
+  height: auto; /* Adjust the logo size */
+  margin-right: 10px;
+}
+
+.logo-title {
+  color: white; 
+  text-decoration: none;
+  font-size: 24px;  /* Adjust font size */
+  font-weight: bold; 
+  font-family: Verdana, sans-serif;
+  margin: 0;
+}
+
+/* Styling for the search container */
+.search-container {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 80%; /* Adjust width as needed */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styling for navigation links */
+.nav-links {
+  display: flex;
+  gap: 20px; /* Space between each link */
+  flex: 3;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ff9900; /* Change color on hover */
+}

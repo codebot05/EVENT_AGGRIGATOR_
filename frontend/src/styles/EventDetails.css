@@ -1,0 +1,39 @@
+.event-details {
+  max-width: 800px; /* Limit width for better readability */
+  margin: 20px auto; /* Center the content */
+  padding: 20px; /* Padding for content */
+  background: #282c34; /* Dark background */
+  color: #fff; /* White text color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.event-image {
+  width: 100%; /* Responsive image */
+  border-radius: 10px; /* Rounded corners for image */
+  margin-bottom: 15px; /* Space below image */
+}
+
+h2 {
+  color: #ffcc00; /* Gold color for title */
+  margin-bottom: 10px; /* Space below title */
+}
+
+p {
+  margin: 10px 0; /* Space between paragraphs */
+}
+
+.register-button {
+  display: inline-block; /* Make it a block element */
+  padding: 10px 20px; /* Padding for button */
+  background: #ffcc00; /* Gold background */
+  color: #282c34; /* Dark text color */
+  text-decoration: none; /* No underline */
+  border-radius: 5px; /* Rounded corners for button */
+  margin-top: 20px; /* Space above button */
+  transition: background 0.3s; /* Transition for hover effect */
+}
+
+.register-button:hover {
+  background: #ffd700; /* Darker gold on hover */
+}

@@ -1,0 +1,9 @@
+/backend/node_modules
+/frontend/node_modules
+C:/Users/Prasanna Dara/OneDrive/Documents/html/miniproject/event-organizer/backend/.env
+# Ignore .env files
+*.env
+backend/.env
+backend/config/.env
+.env
+/uploads

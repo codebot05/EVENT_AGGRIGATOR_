@@ -1,0 +1,17 @@
+/backend/node_modules
+/frontend/node_modules
+C:/Users/Prasanna Dara/OneDrive/Documents/html/miniproject/event-organizer/backend/.env
+# Ignore .env files
+*.env
+backend/.env
+backend/config/.env
+.env
+
+# Ignore Claude/AI-related files
+CLAUDE.md
+.claude
+AI_ML_*.md
+AI_ML_INTEGRATION.md
+EVENT_PAGE_IMPLEMENTATION.md
+TESTING_GUIDE.md
+*AI*.md

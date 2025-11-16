@@ -1,0 +1,172 @@
+/* App.css */
+
+/* Set a global font and background */
+body {
+  font-family: Arial, sans-serif; /* Change to your preferred font */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  background-color: #f4f4f4; /* Light grey background */
+  color: #333; /* Darker text color for readability */
+}
+
+/* Container for the main content */
+.container {
+  max-width: 1200px; /* Max width for larger screens */
+  margin: 20px auto; /* Center the container with margin */
+  padding: 20px; /* Add some padding inside the container */
+  background-color: white; /* White background for the content area */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 5px; /* Slightly rounded corners */
+}
+
+/* Headings */
+h1, h2, h3 {
+  margin-top: 0; /* Remove top margin */
+}
+
+/* Link styles */
+a {
+  color: #4CAF50; /* Change link color */
+  text-decoration: none; /* Remove underline from links */
+}
+
+a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Button styles */
+button {
+  padding: 10px 15px; /* Padding for buttons */
+  background-color: #4CAF50; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Transition for background color */
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    margin: 10px; /* Reduce margin on smaller screens */
+    padding: 10px; /* Reduce padding */
+  }
+}
+/* Add this to your CSS file */
+.custom-notification {
+  padding: 10px;
+  background-color: #4caf50; /* Green */
+  color: white;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+/* App.css */
+
+/* Basic Layout */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Role Selection */
+.role-selection {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.role-selection h2 {
+  margin-bottom: 20px;
+}
+
+.role-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
+  transition: background-color 0.3s;
+}
+
+.role-btn:hover {
+  background-color: #45a049;
+}
+
+/* Login and Signup */
+.login-container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.login-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #45a049;
+}
+
+p {
+  text-align: center;
+}
+
+.link {
+  color: #4caf50;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #45a049;
+}
+
