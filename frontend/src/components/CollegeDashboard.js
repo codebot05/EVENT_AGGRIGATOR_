@@ -14,6 +14,7 @@ const CollegeDashboard = () => {
     eventCategory: '',
     image: null, // New state for the image
     registrationLink: '',
+    isPublic: true, // New field for public/private events
   });
   const [error, setError] = useState(null);
   const eventCategories = ['Hackathon', 'Sports Meet', 'Workshop', 'Seminar', 'Technical Fest'];
@@ -56,6 +57,7 @@ const CollegeDashboard = () => {
     formData.append('location', newEvent.location);
     formData.append('eventCategory', newEvent.eventCategory);
     formData.append('registrationLink', newEvent.registrationLink);
+    formData.append('isPublic', newEvent.isPublic); // Add visibility field
     if (newEvent.image) formData.append('image', newEvent.image); // Append image if present
 
     console.log('FormData fields:');
@@ -83,6 +85,7 @@ const CollegeDashboard = () => {
           eventCategory: '',
           registrationLink: '',
           image: null, // Reset image state
+          isPublic: true, // Reset to default
         });
         alert('Event posted successfully');
       })
@@ -190,6 +193,34 @@ const CollegeDashboard = () => {
             value={newEvent.registrationLink}
             onChange={(e) => setNewEvent({ ...newEvent, registrationLink: e.target.value })}
           />
+
+          <div className="visibility-toggle">
+            <label>
+              <input
+                type="radio"
+                name="visibility"
+                checked={newEvent.isPublic === true}
+                onChange={() => setNewEvent({ ...newEvent, isPublic: true })}
+              />
+              <span className="radio-label">
+                <strong>🌐 Public Event</strong>
+                <small>Anyone can see and register</small>
+              </span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="visibility"
+                checked={newEvent.isPublic === false}
+                onChange={() => setNewEvent({ ...newEvent, isPublic: false })}
+              />
+              <span className="radio-label">
+                <strong>🔒 Private Event</strong>
+                <small>Invitation-only, not shown publicly</small>
+              </span>
+            </label>
+          </div>
+
           <button type="submit">Post Event</button>
         </form>
 

@@ -21,9 +21,13 @@ class RecommendationService {
         throw new Error('Student not found');
       }
 
-      // Get all future events
+      // Get all future public events or events where student is invited
       const allEvents = await Event.find({
-        date: { $gte: new Date() }
+        date: { $gte: new Date() },
+        $or: [
+          { isPublic: true },
+          { invitedStudents: studentId }
+        ]
       }).populate('college');
 
       // Filter out events student already registered for
@@ -134,8 +138,10 @@ class RecommendationService {
    */
   async getTrendingEvents(limit = 10) {
     try {
+      // Only show public trending events
       const events = await Event.find({
-        date: { $gte: new Date() }
+        date: { $gte: new Date() },
+        isPublic: true
       })
         .populate('college')
         .sort({ popularity: -1, viewCount: -1, averageRating: -1 })

@@ -88,7 +88,16 @@ const eventSchema = new mongoose.Schema({
   popularity: {
     type: Number,
     default: 0
-  }
+  },
+  // Event Visibility
+  isPublic: {
+    type: Boolean,
+    default: true  // By default, events are public
+  },
+  invitedStudents: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Student'
+  }]
 }, { timestamps: true });
 
 const Event = mongoose.model('Event', eventSchema);

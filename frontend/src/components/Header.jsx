@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <header className="header-container">
       <div className="logo">
-        <img src={logo} alt="Logo" className="logo-img" />
+        {/* <img src={logo} alt="Logo" className="logo-img" /> */}
         <h1 className="logo-title"><Link to="/" className='logo-title'>EVENTS AGGREGATOR</Link></h1>
       </div>
       

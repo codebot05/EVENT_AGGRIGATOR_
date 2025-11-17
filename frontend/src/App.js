@@ -10,6 +10,7 @@ import StudentDashboard from './components/StudentDashboard';
 import CollegeDashboard from './components/CollegeDashboard';
 import EventsPage from './components/EventsPage';
 import EventDetailsPage from './pages/EventDetailsPage';
+import Chatbot from './components/Chatbot';
 
 const PrivateRoute = ({ element }) => {
   const isAuthenticated = !!localStorage.getItem('authToken'); // Check if auth token exists
@@ -40,6 +41,7 @@ const App = () => {
           />
         </Routes>
         <Footer />
+        <Chatbot />
       </div>
     </Router>
   );

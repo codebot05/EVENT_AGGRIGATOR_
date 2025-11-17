@@ -20,9 +20,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });  
 
 router.post('/events', authenticateToken, upload.single('image'), async (req, res) => {
-  const { eventName, description, date, time, location, eventCategory, event_id, registrationLink } = req.body;
-  const collegeId = req.user._id;  
-  const eventImage = req.file ? `/uploads/events/${req.file.filename}` : null;  
+  const { eventName, description, date, time, location, eventCategory, event_id, registrationLink, isPublic } = req.body;
+  const collegeId = req.user._id;
+  const eventImage = req.file ? `/uploads/events/${req.file.filename}` : null;
 
   try {
     const newEvent = new Event({
@@ -31,18 +31,21 @@ router.post('/events', authenticateToken, upload.single('image'), async (req, re
       date,
       time,
       location,
-      eventCategory,  
-      event_id, 
-      college: collegeId, 
+      eventCategory,
+      event_id,
+      college: collegeId,
       eventImage,
-      registrationLink
+      registrationLink,
+      isPublic: isPublic === 'true' || isPublic === true  // Convert string to boolean
     });
 
     await newEvent.save();
 
-    const recipients = await User.find({}, "email").then(users => users.map(user => user.email));
-
-    await sendEventNotification(newEvent, recipients);
+    // Only send notifications for public events
+    if (newEvent.isPublic) {
+      const recipients = await User.find({}, "email").then(users => users.map(user => user.email));
+      await sendEventNotification(newEvent, recipients);
+    }
 
     res.status(201).json({ message: 'Event created successfully', event: newEvent });
   }catch (err) {
@@ -55,7 +58,24 @@ router.post('/events', authenticateToken, upload.single('image'), async (req, re
 router.get('/events/all', authenticateToken, async (req, res) => {
   console.log("Fetching events...");
   try {
-    const events = await Event.find();
+    const userType = req.user.userType || (req.user.collegeName ? 'college' : 'student');
+    let events;
+
+    if (userType === 'college') {
+      // Colleges see all events
+      events = await Event.find();
+    } else {
+      // Students see:
+      // 1. All public events
+      // 2. Private events where they are invited
+      events = await Event.find({
+        $or: [
+          { isPublic: true },
+          { invitedStudents: req.user._id }
+        ]
+      });
+    }
+
     console.log('Events fetched successfully');
     res.status(200).json(events);
   } catch (err) {
